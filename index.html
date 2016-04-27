@@ -3,21 +3,48 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Мегачат - Пойманов Николай</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="clearfix">
+	<div class="blocker"></div>
+	<div class="reg">
+		<div class="reg__title">Авторизация</div>
+		<form class="reg__form">
+			<div class="reg__wrapper">
+				<input type="text" class="reg__from-input" placeholder="ФИО">				
+			</div>
+			<div class="reg__wrapper reg__wrapper_margin">
+				<input type="text" class="reg__from-input" placeholder="Ник">
+			</div>
+			<div class="reg__wrapper clearfix">
+				<input type="submit" class="reg__submit" value="Войти">
+			</div>
+		</form>
+	</div>
+	<div class="new-avatar">
+		<div class="new-avatar__image">
+			<img src="img/no-photo.jpg" alt="" class="new-avatar__preview">
+		</div>
+		<div class="new-avatar__upload">
+			Загрузить сюда фото
+		</div>
+		<form class="new-avatar__form clearfix">
+			<input type="submit" class="new-avatar__form-submit" value="Загрузить">
+		</form>
+	</div>
 	<div class="left">
-		<div class="left__profile">
+		<div class="left__profile clearfix">
 			<div class="left__profile-img">
-				<div class="left__profile-link">
-					<img src="" class="left__profile-avatar">
-				</div>				
+				<a href="#" class="left__profile-link">
+					<img src="img/no-photo.jpg" class="left__profile-avatar">
+				</a>				
 			</div>
 			<div class="left__profile-user">
-				
+				Гость 1
 			</div>
 		</div>
 		<div class="left__users">
-			<div class="left__header">Участники (1)</div>
+			<div class="left__header">Участники (3)</div>
 			<ul class="left__list">
 				<li class="left__item">Гость 1</li>
 				<li class="left__item">Гость 2</li>
@@ -28,9 +55,9 @@
 	<div class="right">
 		<div class="right__content">
 			<ul class="right__list">
-				<li class="right__item">
+				<li class="right__item clearfix">
 					<div class="right__avatar">
-						<img src="" alt="" class="right__avatar-img">						
+						<img src="img/no-photo.jpg" alt="" class="right__avatar-img">		
 					</div>
 					<div class="right__data">
 						<div class="right__data-top">
@@ -42,10 +69,24 @@
 						</div>
 					</div>
 				</li>
+				<li class="right__item clearfix">
+					<div class="right__avatar">
+						<img src="img/no-photo.jpg" alt="" class="right__avatar-img">		
+					</div>
+					<div class="right__data">
+						<div class="right__data-top">
+							<span class="right__username">Гость 2</span>
+							<span class="right__date">21:18</span>
+						</div>
+						<div class="right__data-bottom">
+							И тебе привет!
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 		<div class="right_controls">
-			<form action="" class="right__form">
+			<form class="right__form clearfix">
 				<input type="text" class="right__input" placeholder="Введите текст">
 				<input type="submit" class="right__submit" value="Отправить">		
 			</form>

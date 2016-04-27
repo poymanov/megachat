@@ -1,0 +1,270 @@
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+	
+.clearfix:after {
+	clear: both;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.blocker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(204, 204, 204, 0.3);
+}
+
+
+/* -------- NEW PHOTO ---------- */
+
+.new-avatar{
+	background: #fff;
+	width: 400px;
+	position: absolute;
+	top: 10%;
+	left: 60%;
+	padding: 10px;
+	border-radius: 13px;
+}
+
+.new-avatar__image {
+	margin: 0 auto 25px auto;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	display: block;
+}
+
+.new-avatar__preview {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.new-avatar__upload {
+	width: 100%;
+	height: 250px;
+	border: 2px dashed #ccc;
+	margin-bottom: 15px;
+	text-align: center;
+	line-height: 250px;
+}
+
+.new-avatar__form-submit {
+	background: #fb825c;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  height: 30px;
+  width: 90px;
+  float: right;
+}
+
+/* -------- REG FORM ---------- */
+
+.reg {
+	width: 400px;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	background: #ddd;
+	border-radius: 13px;
+	padding: 10px;
+	padding-top: 25px;
+}
+
+.reg__title {
+	font-size: 17px;
+	margin-bottom: 15px;
+}
+
+.reg__form {
+	background: #fff;
+	border-radius: 13px;
+	padding: 15px 15px 5px 15px;
+}
+
+.reg__wrapper {
+	margin-bottom: 15px;
+}
+
+.reg__wrapper_margin {
+	margin-bottom: 30px;
+}
+
+.reg__from-input {
+	width: 93%;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	outline: 0;
+}
+
+.reg__submit {
+  background: #fb825c;
+  border: 0;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  height: 30px;
+  width: 90px;
+  float: right;
+}
+
+/* -------- LEFT ---------- */
+
+.left {
+	float: left;
+	width: 20%;
+	height: 100vh;
+	background: #fb825c;
+}
+
+.left__profile {
+	padding-top: 20px;
+	padding-left: 15px;
+	margin-bottom: 25px;
+}
+
+.left__profile-img {
+	float: left;
+	margin-right: 15px;
+}
+
+.left__profile-link {
+	display: block;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+}
+
+.left__profile-avatar {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.left__profile-user {
+	float: left;
+	font-size: 21px;
+	font-weight: 700;
+	color: #fff;
+	padding-top: 17px;
+}
+
+.left__users {
+	padding-left: 15px;
+}
+
+.left__header {
+	font-size: 19px;
+	font-weight: 700;
+	color: #fff;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.left__list {
+	padding-left: 15px;
+}
+
+.left__item {
+	font-size: 14px;
+	color: #fff;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+/* -------- RIGHT ---------- */
+
+.right {
+	float: right;
+	width: 80%;
+	height: 100vh;
+}
+
+.right__content {
+	height: 93vh;
+	padding-top: 25px;
+}
+
+.right__list {
+	overflow: auto;
+	height: 100%;
+}
+
+.right__item {
+	margin-bottom: 15px;
+	padding-left: 15px;
+}
+
+.right__avatar {
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10px;
+}
+
+.right__data {
+	float: left;
+	max-height: 100%;
+	max-width: 100%;
+	padding-top: 5px;
+}
+
+.right__data-top {
+	margin-bottom: 7px;
+}
+
+.right__username {
+	font-weight: 700;
+	font-size: 16px;
+	margin-right: 15px;
+}
+
+.right__date {
+	color: #ccc;
+}
+
+.right_controls {
+	padding-left: 15px;
+}
+
+.right__input {
+	float: left;
+	margin-right: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 80%;
+	color: #ccc;
+	padding: 10px;
+	outline: 0;
+}
+
+.right__submit {
+	float: left;	
+	width: 200px;
+  background: #fb825c;
+  border: 0;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 5px;
+  height: 37px;  
+}
