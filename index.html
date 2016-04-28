@@ -14,14 +14,19 @@
 				<input type="text" class="reg__from-input" placeholder="ФИО">				
 			</div>
 			<div class="reg__wrapper reg__wrapper_margin">
-				<input type="text" class="reg__from-input" placeholder="Ник">
+				<input type="text" id="regLogin" class="reg__from-input" placeholder="Ник">
 			</div>
+<!-- 			<div class="reg__wrapper">
+				<div class="reg__error">
+					Ошибка регистрации
+				</div>
+			</div> -->
 			<div class="reg__wrapper clearfix">
 				<input type="submit" class="reg__submit" value="Войти">
 			</div>
 		</form>
 	</div>
-	<div class="new-avatar">
+	<div class="new-avatar" style="display:none;">
 		<div class="new-avatar__image">
 			<img src="img/no-photo.jpg" alt="" class="new-avatar__preview">
 		</div>
@@ -40,22 +45,20 @@
 				</a>				
 			</div>
 			<div class="left__profile-user">
-				Гость 1
+				Добро пожаловать!
 			</div>
 		</div>
 		<div class="left__users">
-			<div class="left__header">Участники (3)</div>
+			<div class="left__header">Участники</div>
 			<ul class="left__list">
-				<li class="left__item">Гость 1</li>
-				<li class="left__item">Гость 2</li>
-				<li class="left__item">Гость 3</li>
+				<!-- <li class="left__item">Гость 1</li> -->
 			</ul>
 		</div>
 	</div>
 	<div class="right">
 		<div class="right__content">
 			<ul class="right__list">
-				<li class="right__item clearfix">
+				<!-- <li class="right__item clearfix">
 					<div class="right__avatar">
 						<img src="img/no-photo.jpg" alt="" class="right__avatar-img">		
 					</div>
@@ -68,21 +71,7 @@
 							Привет, мир!
 						</div>
 					</div>
-				</li>
-				<li class="right__item clearfix">
-					<div class="right__avatar">
-						<img src="img/no-photo.jpg" alt="" class="right__avatar-img">		
-					</div>
-					<div class="right__data">
-						<div class="right__data-top">
-							<span class="right__username">Гость 2</span>
-							<span class="right__date">21:18</span>
-						</div>
-						<div class="right__data-bottom">
-							И тебе привет!
-						</div>
-					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="right_controls">
@@ -92,5 +81,6 @@
 			</form>
 		</div>
 	</div>
+	<script src="js/script.js"></script>
 </body>
 </html>

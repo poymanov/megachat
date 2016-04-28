@@ -66,13 +66,13 @@ ul {
 
 .new-avatar__form-submit {
 	background: #fb825c;
-  border: 0;
-  color: #fff;
-  font-size: 12px;
-  border-radius: 5px;
-  height: 30px;
-  width: 90px;
-  float: right;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+	height: 30px;
+	width: 90px;
+	float: right;
 }
 
 /* -------- REG FORM ---------- */
@@ -80,8 +80,9 @@ ul {
 .reg {
 	width: 400px;
 	position: absolute;
-	top: 30%;
-	left: 30%;
+	top: 0;
+	left: 50%;
+	margin-left: -200px;
 	background: #ddd;
 	border-radius: 13px;
 	padding: 10px;
@@ -116,14 +117,19 @@ ul {
 }
 
 .reg__submit {
-  background: #fb825c;
-  border: 0;
-  color: #fff;
-  font-size: 12px;
-  border-radius: 5px;
-  height: 30px;
-  width: 90px;
-  float: right;
+	background: #fb825c;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+	height: 30px;
+	width: 90px;
+	float: right;
+}
+
+.reg__error {
+	font-size: 15px;
+	color: #f00;
 }
 
 /* -------- LEFT ---------- */
@@ -261,10 +267,10 @@ ul {
 .right__submit {
 	float: left;	
 	width: 200px;
-  background: #fb825c;
-  border: 0;
-  color: #fff;
-  font-size: 17px;
-  border-radius: 5px;
-  height: 37px;  
+	background: #fb825c;
+	border: 0;
+	color: #fff;
+	font-size: 17px;
+	border-radius: 5px;
+	height: 37px;  
 }
