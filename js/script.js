@@ -32,6 +32,14 @@ var userLogin = "";
 // Поле с именем текущего пользователя
 var userTitle = document.querySelector('.left__profile-user');
 
+// Шаблон общего списка пользователей
+var usersList = document.getElementById('usersList').innerHTML;
+
+// Скомпилированный шаблон списка пользователя
+var usersListCompile = Handlebars.compile(usersList);
+
+// Блок-обертка для списка пользователей
+var usersContent = document.querySelector('.left__content');
 
 if(regLogin) {
 
@@ -159,6 +167,14 @@ regButton.addEventListener('click',function(e){
 
 			// Выводим в заголовок страницы имя текущего пользователя
 			userTitle.innerHTML = "Добро пожаловать, "+userName+"!";
+
+			// Список пользователей онлайн в чате
+			var usersOnline = answerObj['users'];
+
+			// Выводим список пользователей в чате
+			var templateUsersList = usersListCompile({list: usersOnline});
+			usersContent.innerHTML = templateUsersList;
+
 		}
 		
 	}

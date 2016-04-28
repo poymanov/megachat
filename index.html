@@ -47,9 +47,7 @@
 		</div>
 		<div class="left__users">
 			<div class="left__header">Участники</div>
-			<ul class="left__list">
-				<!-- <li class="left__item">Гость 1</li> -->
-			</ul>
+			<div class="left__content"></div>
 		</div>
 	</div>
 	<div class="right">
@@ -78,7 +76,16 @@
 			</form>
 		</div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min"></script>
+
+	<script type="text/x-handlebars-template" id="usersList">
+		<ul class="left__list">
+			{{#each list}}
+				<li class="left__item">{{name}}</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>
