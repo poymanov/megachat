@@ -23,6 +23,16 @@ var regError = document.querySelector('.reg__error');
 // Текущий токен зарегистрированного пользователя
 var userToken = "";
 
+// Имя текущего пользователя
+var userName = "";
+
+// Логин текущего пользователя
+var userLogin = "";
+
+// Поле с именем текущего пользователя
+var userTitle = document.querySelector('.left__profile-user');
+
+
 if(regLogin) {
 
 	regLogin.addEventListener('keypress',function(event){
@@ -140,8 +150,16 @@ regButton.addEventListener('click',function(e){
 
 			// Записываем токен текущего пользователя
 			userToken = answerObj['op'];
-		}
 
+			// Записываем имя текущего пользователя
+			userName = regName.value;
+
+			// Записываем логин текущего пользователя
+			userLogin = regLogin.value;
+
+			// Выводим в заголовок страницы имя текущего пользователя
+			userTitle.innerHTML = "Добро пожаловать, "+userName+"!";
+		}
 		
 	}
 
