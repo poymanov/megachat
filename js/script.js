@@ -175,6 +175,18 @@ regButton.addEventListener('click',function(e){
 			var templateUsersList = usersListCompile({list: usersOnline});
 			usersContent.innerHTML = templateUsersList;
 
+		} else if (answerType == "user-enter") {
+			// Если новый пользователь вошел в чат
+
+			// Получаем элемент список пользователей
+			var leftList = document.querySelector('.left__list');
+
+			// Добавляем нового пользователя в список
+			var userEnter = document.createElement('li');
+			userEnter.classList.add('left__item');
+			userEnter.innerHTML = answerObj['user']['name'];
+			leftList.appendChild(userEnter);
+
 		}
 		
 	}
