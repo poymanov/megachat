@@ -185,8 +185,15 @@ regButton.addEventListener('click',function(e){
 			var userEnter = document.createElement('li');
 			userEnter.classList.add('left__item');
 			userEnter.innerHTML = answerObj['user']['name'];
+			userEnter.setAttribute("id", answerObj['user']['login']);		
 			leftList.appendChild(userEnter);
 
+		} else if (answerType == "user-out") {
+			// Если пользователь покинул чат
+
+			// Удаляем элемент пользователя из списка пользователя
+			var userOut = document.getElementById(answerObj['user']['login']);
+			userOut.remove();
 		}
 		
 	}
