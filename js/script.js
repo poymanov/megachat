@@ -38,8 +38,22 @@ var usersList = document.getElementById('usersList').innerHTML;
 // Скомпилированный шаблон списка пользователя
 var usersListCompile = Handlebars.compile(usersList);
 
+// Шаблон сообщения чата
+var messageChat = document.getElementById('messageChat').innerHTML;
+
+// Скомпилированный шаблон сообщения
+var messageChatCompile = Handlebars.compile(messageChat);
+
+// Список сообщений чата
+var messagesList = document.querySelector('.right__list');
+
 // Блок-обертка для списка пользователей
 var usersContent = document.querySelector('.left__content');
+
+// Подключение handlebars helper
+Handlebars.registerHelper('formatDate', function(ts) {
+	return new Date(ts).toLocaleString();
+});
 
 if(regLogin) {
 
@@ -73,6 +87,13 @@ if(regLogin) {
 	});
 }
 
+
+// Кнопка отправить сообщение
+var sendButton = document.getElementById('sendMessage');
+
+// Поле с текстом сообщения
+var messageInput = document.getElementById('messageInput');
+
 // Регистрация в чате
 var regButton = document.querySelector('.reg__submit');
 
@@ -104,13 +125,39 @@ regButton.addEventListener('click',function(e){
 		alert("Ошибка соединения с сервером");
 	};
 
+	// Событие передача сообщения на сервер
+	sendMessage.addEventListener('click',function(e){
+		e.preventDefault();
+
+		// Проверка на пустое сообщение
+
+		if(!messageInput.value.trim()) {
+			return;
+		}
+
+		// Объект с информацией об сообщении
+		var newMessage = {"op":"message",
+										  "token":userToken,
+										  "data": {
+												"body": messageInput.value
+										  }};
+
+		// Формируем JSON для отправки на сервер
+		var newMessageJson = JSON.stringify(newMessage);
+		connection.send(newMessageJson);
+
+		// Очищаем поле после отправки сообщения
+		messageInput.value = "";
+	
+	});
+
 	// Отправляем запрос на регистрацию
 	connection.onopen = function(e) {
 		// Формируем объект
 		var newUser = {"op":"reg", 
 									 "data": {
-									 		"name": regName.value,
-									 		"login": regLogin.value
+											"name": regName.value,
+											"login": regLogin.value
 									 }};
 
 		// Формируем JSON для отправки на сервер
@@ -157,7 +204,7 @@ regButton.addEventListener('click',function(e){
 			blockerBlock.style.display = "none";
 
 			// Записываем токен текущего пользователя
-			userToken = answerObj['op'];
+			userToken = answerObj['token'];
 
 			// Записываем имя текущего пользователя
 			userName = regName.value;
@@ -194,6 +241,20 @@ regButton.addEventListener('click',function(e){
 			// Удаляем элемент пользователя из списка пользователя
 			var userOut = document.getElementById(answerObj['user']['login']);
 			userOut.remove();
+		} else if (answerType == "message") {
+			// Новое сообщение в чате
+
+			// Компилируем шаблон
+			var templateMessageChat = messageChatCompile({message: answerObj});
+
+			// Создаем новый элемент списка
+			var newMessage = document.createElement('li');
+			newMessage.classList.add('right__item','clearfix');
+			newMessage.innerHTML = templateMessageChat;
+
+			// Выводим сообщение
+			messagesList.appendChild(newMessage);
+
 		}
 		
 	}

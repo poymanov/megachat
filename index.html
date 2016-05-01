@@ -71,8 +71,8 @@
 		</div>
 		<div class="right_controls">
 			<form class="right__form clearfix">
-				<input type="text" class="right__input" placeholder="Введите текст">
-				<input type="submit" class="right__submit" value="Отправить">		
+				<input type="text" class="right__input" placeholder="Введите текст" id="messageInput">
+				<input type="submit" class="right__submit" value="Отправить" id="sendMessage">		
 			</form>
 		</div>
 	</div>
@@ -84,6 +84,34 @@
 			{{/each}}
 		</ul>
 	</script>
+
+	<script type="text/x-handlebars-template" id="messageChat">
+		<div class="right__avatar">
+			<img src="img/no-photo.jpg" alt="{{message.user.name}}" class="right__avatar-img">		
+		</div>
+		<div class="right__data">
+			<div class="right__data-top">
+				<span class="right__username">{{message.user.name}}</span>
+				<span class="right__date">{{formatDate message.time}}</span>
+			</div>
+			<div class="right__data-bottom">
+				{{message.body}}
+			</div>
+		</div>
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+					
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 	<script src="js/script.js"></script>
