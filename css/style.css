@@ -51,11 +51,6 @@ ul {
 	display: block;
 }
 
-.new-avatar__preview {
-	max-height: 100%;
-	max-width: 100%;
-}
-
 .new-avatar__upload {
 	width: 99%;
 	height: 250px;
@@ -63,6 +58,17 @@ ul {
 	margin-bottom: 15px;
 	text-align: center;
 	line-height: 250px;
+}
+
+.new-avatar__upload-preview {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.new-avatar__error {
+	margin-bottom: 15px;
+	text-align: center;
+	color: #f00;
 }
 
 .new-avatar__form-submit {
