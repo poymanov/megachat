@@ -222,6 +222,22 @@ regButton.addEventListener('click',function(e){
 			var templateUsersList = usersListCompile({list: usersOnline});
 			usersContent.innerHTML = templateUsersList;
 
+			// Выводим последние сообщения из чата
+			var lastMessages = answerObj['messages'];
+
+			lastMessages.forEach(function(item){
+				// Компилируем шаблон
+				var templateMessageChat = messageChatCompile({message: item});
+
+				// Создаем новый элемент списка
+				var newMessage = document.createElement('li');
+				newMessage.classList.add('right__item','clearfix');
+				newMessage.innerHTML = templateMessageChat;
+
+				// Выводим сообщение
+				messagesList.appendChild(newMessage);
+			});
+
 		} else if (answerType == "user-enter") {
 			// Если новый пользователь вошел в чат
 
