@@ -50,6 +50,15 @@ var messagesList = document.querySelector('.right__list');
 // Блок-обертка для списка пользователей
 var usersContent = document.querySelector('.left__content');
 
+// Ссылка вызова формы изменения аватара
+var newAvatarLink = document.querySelector('.left__profile-link');
+
+// Форма изменения аватара
+var newAvatar = document.querySelector('.new-avatar');
+
+// Кнопка закрытия форма изменения аватара
+var newAvatarClose = document.querySelector('.new-avatar__form-close');
+
 // Подключение handlebars helper
 Handlebars.registerHelper('formatDate', function(ts) {
 	return new Date(ts).toLocaleString();
@@ -87,6 +96,32 @@ if(regLogin) {
 	});
 }
 
+// Открытие формы измения аватара
+
+newAvatarLink.addEventListener('click',function(e){
+
+	e.preventDefault();
+
+	// Отображаем блок блокиратор
+	blockerBlock.style.display = "block";
+
+	// Отображаем форму изменения аватара
+	newAvatar.style.display = "block";
+
+});
+
+// Закрытие формы изменения аватара
+
+newAvatarClose.addEventListener('click',function(e){
+	e.preventDefault();
+
+	// Скрываем блок блокиратор
+	blockerBlock.style.display = "none";
+
+	// Скрываем форму изменения аватара
+	newAvatar.style.display = "none";
+
+});
 
 // Кнопка отправить сообщение
 var sendButton = document.getElementById('sendMessage');

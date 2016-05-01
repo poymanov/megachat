@@ -33,10 +33,11 @@ ul {
 
 .new-avatar{
 	background: #fff;
-	width: 400px;
+	width: 420px;
 	position: absolute;
-	top: 10%;
-	left: 60%;
+	top: 0;
+	left: 50%;
+	margin-left: -210px;
 	padding: 10px;
 	border-radius: 13px;
 }
@@ -56,7 +57,7 @@ ul {
 }
 
 .new-avatar__upload {
-	width: 100%;
+	width: 99%;
 	height: 250px;
 	border: 2px dashed #ccc;
 	margin-bottom: 15px;
@@ -65,6 +66,18 @@ ul {
 }
 
 .new-avatar__form-submit {
+	background: #fb825c;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 5px;
+	height: 30px;
+	width: 90px;
+	float: left;
+}
+
+.new-avatar__form-close {
+	display: block;
 	background: #fb825c;
 	border: 0;
 	color: #fff;
