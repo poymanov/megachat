@@ -149,7 +149,6 @@ newAvatarUpload.addEventListener('dragover', function(e){
   e.dataTransfer.dropEffect = 'copy';
 }, false);
 
-
 newAvatarUpload.addEventListener('drop', function(e){
 	e.stopPropagation();
   e.preventDefault();
@@ -424,7 +423,6 @@ regButton.addEventListener('click',function(e){
 		} else if (answerType == "user-change-photo") {
 			// Если пользователь сменил аватар
 
-			// Получаем новый аватар пользователя
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', 'http://localhost:5000/photos/'+answerObj['user']['login'], true);
 			xhr.responseType = 'blob';
@@ -461,7 +459,6 @@ regButton.addEventListener('click',function(e){
  	 				});
     		
 			  }
-
 			}
 
 		}
