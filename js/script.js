@@ -178,6 +178,9 @@ newAvatarUpload.addEventListener('drop', function(e){
   	return;
   }
 
+  // Сохраняем файл в переменную
+	newAvatarFile = file;
+	
   // Отображаем превью изображения
   var fileReader = new FileReader();
 
@@ -189,16 +192,12 @@ newAvatarUpload.addEventListener('drop', function(e){
   	newAvatarUpload.innerHTML = "";
 
   	// Создаем изображение
-
   	var previewImage = document.createElement('img');
   	previewImage.classList.add('new-avatar__upload-preview');
 		previewImage.src = this.result;
 
 		// Выводим изображение
 		newAvatarUpload.appendChild(previewImage);
-
-		// Сохраняем файл в переменную
-		var newAvatarFile = file;
 
   });
 
@@ -209,27 +208,30 @@ newAvatarSubmit.addEventListener('click',function(e){
 		e.preventDefault();
 
 		// Отправляем изображение на сервер
-		var newImage = new FormData();
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'http://localhost:5000/upload',true);
+
+		newImage = new FormData();
 		newImage.append('photo',newAvatarFile);
 		newImage.append('token',userToken);
-
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'http://localhost:5000/upload', false);
 		xhr.send(newImage);
 
-		if (xhr.status != 200) {
-  		// Если не удалось загрузить фотографию
-  		newAvatarError.style.display = "block";
-  		newAvatarError.innerHTML = "Ошибка загрузки фотографии";
-		} else {
-			// Если загрузка прошла успешно
+		xhr.onreadystatechange = function() {
+		  if (xhr.readyState != 4) {return};
 
-			// Закрываем форму
-			e.preventDefault();
-			// Скрываем блок блокиратор
-			blockerBlock.style.display = "none";
-			// Скрываем форму изменения аватара
-			newAvatar.style.display = "none";
+		  if (xhr.status != 200) {
+		    // Если не удалось загрузить фотографию
+	  		newAvatarError.style.display = "block";
+	  		newAvatarError.innerHTML = "Ошибка загрузки фотографии";
+		  } else {
+		    // Если загрузка прошла успешно
+
+				// Скрываем блок блокиратор
+				blockerBlock.style.display = "none";
+				// Скрываем форму изменения аватара
+				newAvatar.style.display = "none";
+		  }
+
 		}
 });
 
@@ -403,7 +405,7 @@ regButton.addEventListener('click',function(e){
 			var userOut = document.getElementById(answerObj['user']['login']);
 			userOut.remove();
 		} else if (answerType == "message") {
-			// Новое сообщение в чате
+			// Если новое сообщение в чате
 
 			// Компилируем шаблон
 			var templateMessageChat = messageChatCompile({message: answerObj});
@@ -416,7 +418,7 @@ regButton.addEventListener('click',function(e){
 			// Выводим сообщение
 			messagesList.appendChild(newMessage);
 
-		}
+		} 
 		
 	}
 
