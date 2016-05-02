@@ -71,6 +71,9 @@ var newAvatarFile = "";
 // Кнопка загрузка изображения
 var newAvatarSubmit = document.querySelector('.new-avatar__form-submit');
 
+// Аватар пользователя в левой части
+var profileAvatar = document.querySelector('.left__profile-avatar');
+
 // Подключение handlebars helper
 Handlebars.registerHelper('formatDate', function(ts) {
 	return new Date(ts).toLocaleString();
@@ -418,7 +421,50 @@ regButton.addEventListener('click',function(e){
 			// Выводим сообщение
 			messagesList.appendChild(newMessage);
 
-		} 
+		} else if (answerType == "user-change-photo") {
+			// Если пользователь сменил аватар
+
+			// Получаем новый аватар пользователя
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'http://localhost:5000/photos/'+answerObj['user']['login'], true);
+			xhr.responseType = 'blob';
+			xhr.send();
+
+			xhr.onreadystatechange = function() {
+			  if (xhr.readyState != 4) {return};
+
+			  if (xhr.status != 200) {
+			    
+			  } else {		
+
+			  	var fileReader = new FileReader();
+  				fileReader.readAsDataURL(xhr.response);
+
+ 	 				fileReader.addEventListener('load',function(){
+
+ 	 					// Новое изображение аватара
+ 	 					var userProfileImg = this.result;
+
+ 	 					// Если аватар меняется у себя самого себя,
+ 	 					// то меняем изображение в левой части
+
+ 	 					if(answerObj['user']['login'] == userLogin) { 	 						
+	  					profileAvatar.src = userProfileImg;
+ 	 					}
+
+ 	 					// Меняем изображение пользователя в существующих сообщениях чата
+ 	 					var messageAvatar = document.querySelectorAll('.'+answerObj['user']['login']+"-avatar");
+
+ 	 					for(var i = 0; i < messageAvatar.length; i++) {
+ 	 						messageAvatar[i].src = userProfileImg;
+ 	 					}
+ 	 				});
+    		
+			  }
+
+			}
+
+		}
 		
 	}
 
