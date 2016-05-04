@@ -103,7 +103,7 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 				// Если такой пользователь уже есть
 
 				// Сообщаем об ошибке в форму регистрации
-				reg.regError.innerHTML = "Пользователь с таким именем уже существует";
+				reg.regError.innerHTML = answerObj['error']['message'];
 				reg.regError.style.display = "block";
 				
 			} else if (answerType == "token") {
