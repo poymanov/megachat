@@ -1,7 +1,7 @@
 requirejs.config({
-  paths: {
-    handlebars: 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min'
-  }
+	paths: {
+		handlebars: 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min'
+	}
 });
 
 define(['handlebars','reg','users','profile','messages'],function(handlebars,reg,users,profile,messages){
@@ -52,10 +52,10 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 
 			// Объект с информацией об сообщении
 			var newMessage = {"op":"message",
-											  "token":users.userToken,
-											  "data": {
+												"token":users.userToken,
+												"data": {
 													"body": messages.messageInput.value
-											  }};
+												}};
 
 			// Формируем JSON для отправки на сервер
 			var newMessageJson = JSON.stringify(newMessage);
@@ -192,35 +192,23 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 				xhr.send();
 
 				xhr.onreadystatechange = function() {
-				  if (xhr.readyState != 4) {return};
+					if (xhr.readyState != 4) {return};
 
-				  if (xhr.status != 200) {
-				    
-				  } else {		
+						if (xhr.status = 200) {
 
-				  	var fileReader = new FileReader();
-	  				fileReader.readAsDataURL(xhr.response);
+							userProfileImg = "http://localhost:5000/photos/"+answerObj['user']['login'];
 
-	 	 				fileReader.addEventListener('load',function(){
+							if(answerObj['user']['login'] == users.userLogin) { 	 						
+								profile.profileAvatar.src = userProfileImg;
+							}
 
-	 	 					// Новое изображение аватара
-	 	 					var userProfileImg = this.result;
+							// Меняем изображение пользователя в существующих сообщениях чата
+							var messageAvatar = document.querySelectorAll('.'+answerObj['user']['login']+"-avatar");
 
-	 	 					// Если аватар меняется у себя самого себя,
-	 	 					// то меняем изображение в левой части
-
-	 	 					if(answerObj['user']['login'] == users.userLogin) { 	 						
-		  					profile.profileAvatar.src = userProfileImg;
-	 	 					}
-
-	 	 					// Меняем изображение пользователя в существующих сообщениях чата
-	 	 					var messageAvatar = document.querySelectorAll('.'+answerObj['user']['login']+"-avatar");
-
-	 	 					for(var i = 0; i < messageAvatar.length; i++) {
-	 	 						messageAvatar[i].src = userProfileImg;
-	 	 					}
-	 	 				});
-				  }
+							for(var i = 0; i < messageAvatar.length; i++) {
+								messageAvatar[i].src = userProfileImg;
+							}
+						}
 				}
 			}
 		}
