@@ -18,41 +18,27 @@ define('reg',function(){
 	// Регистрация в чате
 	var regButton = document.querySelector('.reg__submit');
 
-	// Получение символа нажатой клавиши 
-	function getChar(event) {
-		return String.fromCharCode(event.keyCode || event.charCode);
-	}
-
 	// События валидации ввода для поля логина
 	if(regLogin) {
 
-		regLogin.addEventListener('keypress',function(event){
+		regLogin.addEventListener('input',function(event){
 			var e = event||window.event;
 			
+
 			// спец. сочетания - не обрабатываем
 			if (e.ctrlKey || e.altKey || e.metaKey) {
-				return true
+				return true;
 			};
 
 			var reg = new RegExp('^[A-Za-z0-9-_]', 'g');
-			var char = getChar(e);
-		
+			
+			// Текущий вводимый символ
+			var char = this.value.substr(-1);
+
 			if(!char.match(reg)){
-				event.preventDefault();
+				this.value = this.value.replace(char,'');
 			}
 			
-		});
-
-		regLogin.addEventListener('paste',function(e){
-			
-			// Получаем данные из буфера обмены
-			data = e.clipboardData.getData('text');
-			var reg = new RegExp('^[A-Za-z0-9-_]', 'g');
-			
-			if(!data.match(reg)){
-				event.preventDefault();
-			}
-
 		});
 	}
 
