@@ -196,7 +196,7 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 
 						if (xhr.status = 200) {
 
-							userProfileImg = "http://localhost:5000/photos/"+answerObj['user']['login'];
+							userProfileImg = "http://localhost:5000/photos/"+answerObj['user']['login']+"?"+Date.now();
 
 							if(answerObj['user']['login'] == users.userLogin) { 	 						
 								profile.profileAvatar.src = userProfileImg;
