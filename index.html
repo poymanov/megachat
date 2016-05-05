@@ -64,14 +64,14 @@
 	<script type="text/x-handlebars-template" id="usersList">
 		<ul class="left__list">
 			{{#each list}}
-				<li class="left__item" id="{{login}}">{{name}}</li>
+				<li class="left__item" data-list-user="{{login}}">{{name}}</li>
 			{{/each}}
 		</ul>
 	</script>
 
 	<script type="text/x-handlebars-template" id="messageChat">
 		<div class="right__avatar">
-			<img src="http://localhost:5000/photos/{{message.user.login}}" alt="{{message.user.name}}" class="right__avatar-img {{message.user.login}}-avatar">		
+			<img src="http://localhost:5000/photos/{{message.user.login}}" alt="{{message.user.name}}" class="right__avatar-img" data-avatar="{{message.user.login}}-avatar">		
 		</div>
 		<div class="right__data">
 			<div class="right__data-top">

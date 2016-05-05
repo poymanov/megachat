@@ -166,9 +166,10 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 			} else if (answerType == "user-out") {
 				// Если пользователь покинул чат
 
-				// Удаляем элемент пользователя из списка пользователя
-				var userOut = document.getElementById(answerObj['user']['login']);
+				// Удаляем элемент пользователя из списка пользователя			
+				var userOut = document.querySelector('.left__item[data-list-user='+answerObj['user']['login']+']');
 				userOut.remove();
+
 			} else if (answerType == "message") {
 				// Если новое сообщение в чате
 
@@ -203,7 +204,7 @@ define(['handlebars','reg','users','profile','messages'],function(handlebars,reg
 							}
 
 							// Меняем изображение пользователя в существующих сообщениях чата
-							var messageAvatar = document.querySelectorAll('.'+answerObj['user']['login']+"-avatar");
+							var messageAvatar = document.querySelectorAll('.right__avatar-img[data-avatar='+answerObj['user']['login']+"-avatar");
 
 							for(var i = 0; i < messageAvatar.length; i++) {
 								messageAvatar[i].src = userProfileImg;
