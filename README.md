@@ -29,6 +29,6 @@
 
 И запустить сервер для начала работы
 
-    node /index.js
+    node index.js
 
 В браузере открыть **index.html**
